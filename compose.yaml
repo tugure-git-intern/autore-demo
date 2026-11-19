@@ -1,0 +1,14 @@
+﻿services:
+  web:
+    image: nginx:1.29-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - C:/demo/site:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
+  api:
+    image: traefik/whoami
+    ports:
+      - "8081:80"
+    restart: unless-stopped
